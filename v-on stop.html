@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-on</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+      <div v-on:click.self="doParent">
+        <button v-on:click.self="doThis">事件冒泡</button>
+        <button v-on:click.stop.self="doThis">阻止事件冒泡</button>
+      </div>  
+        <div v-on:click.capture='doParent'>
+           <button v-on:click.self="doThis">event capture</button>
+      </div>
+    </div>
+    <script>
+        var vm = new Vue({
+            el:'#app',
+            methods:{
+              doParent(){
+                console.log('我是父元素单击事件')
+              },
+              doThis(){
+                console.log('我是当前单击元素时间')
+              }
+            }
+        })
+    </script>
+</body>
+</html>

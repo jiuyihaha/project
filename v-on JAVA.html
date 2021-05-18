@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-on</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+      <button v-on:click="random_number">随机数</button>
+      <button v-on:keyup.enter="random_number">random_number</button>
+      <p>自动生成的随机数是{{count}}</p>
+    </div>
+    <script>
+        var vm = new Vue({
+            el:'#app',
+            data:{
+              count:0
+            }, 
+            methods:{ 
+               random_number(){
+                 return this.count+=Math.random()
+               }
+            }            
+        })
+    </script>
+</body>
+</html

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mixin</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>{{name}}</p>
+    <p>{{realname}}</p>
+    </div>
+    
+    <script>
+        Vue.mixin({
+            created(){
+                 this.realname=this.$options.realname
+                }
+        })
+        var vm =new Vue({
+            el:'#app',
+            realname:'real father',
+            data:{
+                name:'yjt'
+            }
+        })
+    </script>
+</body>
+</html>
